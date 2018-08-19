@@ -53,9 +53,11 @@ bash autogen.sh
 chmod -R 775 *
 pubip=dig +short myip.opendns.com @resolver1.opendns.com
 endmessage="Setup Has finished successfully and seednode is up at $NODEIP" 
-git clone https://github.com/akshaynexus/hivenet
-cd hivenet 
+# git clone https://github.com/akshaynexus/hivenet
+# cd hivenet 
+chmod -R 775 *
 ./configure --enable-tests=no --with-gui=no
+make clean
 make install
 if [ -d '/root/.hive' ] ; then
 #Things to do
