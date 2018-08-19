@@ -6,7 +6,7 @@ CONFIGFOLDER='/root/.hive'
 COIN_PATH='/usr/local/bin/'
 COIN_DAEMON='hived'
 COIN_CLI='hive-cli'
-COIN_TGZ='https://github.com/akshaynexus/hivenet/releases/download/1/hive.zip'
+COIN_TGZ='https://transfer.sh/roefs/hive.zip'
 COIN_ZIP=$(echo $COIN_TGZ | awk -F'/' '{print $NF}')
 COIN_NAME='HIVE Network'
 COIN_PORT=4235
@@ -27,7 +27,9 @@ function download_node() {
   apt install zip unzip >/dev/null 2>&1
   wget -q $COIN_TGZ
   compile_error
-  unzip hive.zip -d $COIN_PATH
+  unzip hive.zip 
+  cd hive
+  cp -r * /usr/local/bin/
 #   tar xvzf $COIN_ZIP -C $COIN_PATH >/dev/null 2>&1
   cd - >/dev/null 2>&1
   rm -rf $TMP_FOLDER >/dev/null 2>&1
