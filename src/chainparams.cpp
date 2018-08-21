@@ -91,10 +91,10 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 4-byte int at any alignment.
          */
-        pchMessageStart[0] = 0x62;
-        pchMessageStart[1] = 0x71;
-        pchMessageStart[2] = 0x4a;
-        pchMessageStart[3] = 0x5d;
+        pchMessageStart[0] = 0x61;
+        pchMessageStart[1] = 0x7a;
+        pchMessageStart[2] = 0x4d;
+        pchMessageStart[3] = 0x52;
         vAlertPubKey = ParseHex("0497dfcea626dca270cfe2eebf1160733b07352af966926e30058ca53dae05bbc71d64dbaa0c66e373211e324a23b361fc33e1e2dece1fb90afcefc707643a28f5");
         nDefaultPort = 4235;
         bnProofOfWorkLimit = ~uint256(0) >> 20; // Hive starting difficulty is 1 / 2^12
@@ -106,7 +106,7 @@ public:
         nMinerThreads = 0;
         nTargetTimespan = 1 * 60; // Hive: 1 day
         nTargetSpacing = 1 * 60;  // Hive: 1 minute
-        nLastPOWBlock = 550;
+        nLastPOWBlock = 1500;
         nMaturity = 50;
         nMasternodeCountDrift = 20;
         nMasternodeCollateralLimit = 1000;

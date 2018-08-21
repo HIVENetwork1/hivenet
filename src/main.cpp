@@ -1098,16 +1098,16 @@ bool AcceptToMemoryPool(CTxMemPool& pool, CValidationState& state, const CTransa
             REJECT_INVALID, "coinbase");
 
     //Coinstake is also only valid in a block, not as a loose transaction
-    // if (tx.IsCoinStake())
-    //     return state.DoS(100, error("AcceptToMemoryPool: coinstake as individual tx"),
-    //         REJECT_INVALID, "coinstake");
+    if (tx.IsCoinStake())
+        return state.DoS(100, error("AcceptToMemoryPool: coinstake as individual tx"),
+            REJECT_INVALID, "coinstake");
 
     // Rather not work on nonstandard transactions (unless -testnet/-regtest)
     string reason;
-    // if (Params().RequireStandard() && !IsStandardTx(tx, reason))
-    //     return state.DoS(0,
-    //         error("AcceptToMemoryPool : nonstandard transaction: %s", reason),
-    //         REJECT_NONSTANDARD, reason);
+    if (Params().RequireStandard() && !IsStandardTx(tx, reason))
+        return state.DoS(0,
+            error("AcceptToMemoryPool : nonstandard transaction: %s", reason),
+            REJECT_NONSTANDARD, reason);
 
     // is it already in the memory pool?
     uint256 hash = tx.GetHash();
@@ -1623,13 +1623,13 @@ int64_t GetBlockValue(int nHeight)
 		
 	int64_t nSubsidy;
 	
-	if(nHeight <= 200 && nHeight > 1) {
-        nSubsidy = 1 * COIN;
-	} else if (nHeight > 200) {
+	if(nHeight <= Params().LAST_POW_BLOCK() && nHeight > 1) {
+        nSubsidy = 0.5 * COIN;
+	} else if (nHeight > Params().LAST_POW_BLOCK()200) {
 		nSubsidy = 4 * COIN;
 	} 
     //we reach max supply we need,so from thereonout it is 0 blockrewards
-    else if (nHeight >= 2183340 && nHeight > 200) {
+    else if (nHeight >= 2183340 && nHeight > Params().LAST_POW_BLOCK()) {
 		nSubsidy = 0 * COIN;
 	}
     else{
