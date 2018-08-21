@@ -1625,7 +1625,7 @@ int64_t GetBlockValue(int nHeight)
 	
 	if(nHeight <= Params().LAST_POW_BLOCK() && nHeight > 1) {
         nSubsidy = 0.5 * COIN;
-	} else if (nHeight > Params().LAST_POW_BLOCK()200) {
+	} else if (nHeight > Params().LAST_POW_BLOCK()) {
 		nSubsidy = 4 * COIN;
 	} 
     //we reach max supply we need,so from thereonout it is 0 blockrewards
