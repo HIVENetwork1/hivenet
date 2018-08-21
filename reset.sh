@@ -1,4 +1,4 @@
-cd /root/.hivenet/
+cd /root/.hive/
 rm -rf *
 touch hive.conf
 echo "rpcuser=user" >> hive.conf
