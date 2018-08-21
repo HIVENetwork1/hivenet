@@ -1103,7 +1103,7 @@ bool AcceptToMemoryPool(CTxMemPool& pool, CValidationState& state, const CTransa
     //         REJECT_INVALID, "coinstake");
 
     // Rather not work on nonstandard transactions (unless -testnet/-regtest)
-    // string reason;
+    string reason;
     // if (Params().RequireStandard() && !IsStandardTx(tx, reason))
     //     return state.DoS(0,
     //         error("AcceptToMemoryPool : nonstandard transaction: %s", reason),
