@@ -85,7 +85,7 @@ function makelinux() {
         chmod -R 775 *
         # x86_64-pc-linux-gnu
 ./autogen.sh;
-./configure --enable-tests=no --with-gui=qt5 LDFLAGS="-static"
+./configure --enable-tests=no --with-gui=qt5 
 make
 mkdir -p build/v2.0.0.0/x86_64-pc-linux-gnu
 cp /root/hivenet/src/hivenetd build/v2.0.0.0/x86_64-pc-linux-gnu/hivenetd
@@ -96,6 +96,12 @@ strip build/v2.0.0.0/x86_64-pc-linux-gnu/hivenetd
 strip build/v2.0.0.0/x86_64-pc-linux-gnu/hive-tx
 strip build/v2.0.0.0/x86_64-pc-linux-gnu/hive-cli
 strip build/v2.0.0.0/x86_64-pc-linux-gnu/hive-qt
+mkdir hive
+cp build/v2.0.0.0/x86_64-pc-linux-gnu/hive* hive
+zip -r hive.zip hive
+LINUXLINK=$(transfer hive.zip)
+python3 /root/hivenet/message.py 'Linux Link for binaries'
+python3 /root/hivenet/message.py $LINUXLINK
  python3 /root/hivenet/message.py 'Linux wallets finished'
 # cd build/v2.0.0.0/x86_64-pc-linux-gnu
 cd /root/hivenet
