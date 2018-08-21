@@ -9,7 +9,7 @@ COIN_CLI='hive-cli'
 COIN_TGZ='https://transfer.sh/roefs/hive.zip'
 COIN_ZIP=$(echo $COIN_TGZ | awk -F'/' '{print $NF}')
 COIN_NAME='HIVE Network'
-COIN_PORT=4235
+COIN_PORT=1234
 RPC_PORT=5523
 
 

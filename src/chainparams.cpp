@@ -91,12 +91,12 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 4-byte int at any alignment.
          */
-        pchMessageStart[0] = 0x61;
-        pchMessageStart[1] = 0x7a;
-        pchMessageStart[2] = 0x4d;
-        pchMessageStart[3] = 0x52;
+        pchMessageStart[0] = 0x66;
+        pchMessageStart[1] = 0x7c;
+        pchMessageStart[2] = 0x48;
+        pchMessageStart[3] = 0x5a;
         vAlertPubKey = ParseHex("0497dfcea626dca270cfe2eebf1160733b07352af966926e30058ca53dae05bbc71d64dbaa0c66e373211e324a23b361fc33e1e2dece1fb90afcefc707643a28f5");
-        nDefaultPort = 4235;
+        nDefaultPort = 1234;
         bnProofOfWorkLimit = ~uint256(0) >> 20; // Hive starting difficulty is 1 / 2^12
         nSubsidyHalvingInterval = 210000;
         nMaxReorganizationDepth = 100;
